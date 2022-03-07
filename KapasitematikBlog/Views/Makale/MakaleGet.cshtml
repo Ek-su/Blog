@@ -1,0 +1,28 @@
+﻿@model KapasitematikBlog.Domain.Makale
+@{
+    ViewData["Title"] = "MakaleGet";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Makale Ekle</h2>
+<br />
+@using (Html.BeginForm("MakaleUpdate", "Makale", FormMethod.Post))
+{
+    @Html.Label("Makale Id")
+    @Html.TextAreaFor(x => x.MakaleId, new { @class = "form-control" })
+    <br />
+    @Html.Label("Başlık")
+    @Html.TextAreaFor(x => x.MakaleBaslik, new { @class = "form-control" })
+    <br />
+    @Html.Label("Açıklama")
+    @Html.TextAreaFor(x => x.MakaleAciklama, new { @class = "form-control" })
+    <br />
+    @Html.Label("Resim")
+    @Html.TextBoxFor(x => x.ResimUrl, new { @class = "form-control" })
+    @Html.Label("Kategori")
+    @Html.TextBoxFor(x => x.MakaleKategoriId, new { @class = "form-control" })
+    @*@Html.DropDownListFor(x => x.MakaleKategoriId, (List<SelectListItem>)ViewBag.v1, new { @class = "form-control" })*@
+    <br />
+    <button class="btn btn-primary">Ekle</button>
+}
+

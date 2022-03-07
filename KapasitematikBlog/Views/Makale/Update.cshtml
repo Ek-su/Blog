@@ -1,0 +1,68 @@
+﻿@model KapasitematikBlog.Domain.Makale
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="form">
+    <form class="form-validate form-horizontal" id="feedback_form" method="post" asp-controller="Makale" asp-action="UpdateMakale" enctype="multipart/form-data" novalidate="novalidate">
+        <div class="form-group ">
+            <label for="cname" class="control-label col-lg-2" hidden>Id <span class="required">*</span></label>
+            <div class="col-lg-10">
+                <input class="form-control" id="MakaleId" name="MakaleId" type="hidden" required="" value="@Model.MakaleId">
+            </div>
+        </div>
+        <div class="form-group ">
+            <label for="cname" class="control-label col-lg-2">Başlık <span class="required">*</span></label>
+            <div class="col-lg-10">
+                <input class="form-control" id="Baslik" name="MakaleBaslik" minlength="5" type="text" required="" value="@Model.MakaleBaslik">
+            </div>
+        </div>
+        <div class="form-group ">
+            <label for="cemail" class="control-label col-lg-2">Açıklama <span class="required">*</span></label>
+            <div class="col-lg-10">
+                <textarea class="ckeditor" name="MakaleAciklama" id="Icerik">@Model.MakaleAciklama</textarea>
+            </div>
+        </div>
+        <div class="form-group ">
+            <label for="cname" class="control-label col-lg-2">Resim <span class="required">*</span></label>
+            <div class="col-lg-10">
+                <input class="form-control" id="ResimURL" name="ResimUrl" minlength="5" type="file" accept="image/*">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">Kategori</label>
+            @Html.DropDownList("Kategoriler")
+        </div>
+        <div class="form-group">
+            <div class="col-lg-offset-2 col-lg-10">
+                <input class="btn btn-primary" type="submit" value="Düzenle" />
+                @*<button class="btn btn-default" type="button"><a href="/makale-listesi">İptal</a></button>*@
+            </div>
+        </div>
+    </form>
+
+    @if (TempData["mesaj"] != null)
+    {
+        <div id="dialog" title="Bilgi Mesajı">
+            <p>
+                @TempData["mesaj"].ToString()
+            </p>
+        </div>
+    }
+
+</div>
+
+@section Scripts {
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.0/jquery-ui.js"></script>
+    <script>
+        $("#dialog").dialog();
+        $("#Tarih").datepicker({
+            dateFormat: "dd/mm/yy",
+            onSelect: function (date) {
+                minDateFilter = new Date(date).getTime();
+            }
+        });
+    </script>
+}
+

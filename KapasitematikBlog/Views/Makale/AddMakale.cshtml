@@ -1,0 +1,28 @@
+﻿@model KapasitematikBlog.Domain.makaleekle
+
+@{
+    ViewData["Title"] = "AddMakale";
+    //Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Makale Ekle</h2>
+<br />
+@*@using (Html.BeginForm("AddMakale", "Makale", FormMethod.Post))*@
+<form class=" form-group" action="AddMakale" asp-controller="Makale" method="post" enctype="multipart/form-data">
+    @Html.Label("Başlık")
+    @Html.TextAreaFor(x => x.MakaleBaslik, new { @class = "form-control" })
+    <br />
+    @Html.Label("Açıklama")
+    @Html.TextAreaFor(x => x.MakaleAciklama, new { @class = "form-control" })
+    <br />
+    @Html.Label("Resim Seç")
+    <input type="file" name="ResimUrl" />
+    @*@Html.TextBoxFor(x => x.ResimUrl, new { @class = "form-control" })*@
+    @Html.Label("Kategori")
+    @Html.DropDownListFor(x => x.MakaleKategoriId, (List<SelectListItem>)ViewBag.v1, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Ekle</button>
+</form>
+
+
+

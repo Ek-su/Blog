@@ -1,0 +1,19 @@
+﻿@model IEnumerable<KapasitematikBlog.Domain.Kategori>
+@{
+    ViewData["Title"] = "Kategoriler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+        @foreach (var item in Model)
+        {
+            <li class="nav-item active">
+                <a class="nav-link" href="@item.KategoriId">@item.KategoriAd</a>
+            </li>
+        }
+        @*<li class="nav-item dropdown">*@
+        @*<a class="nav-link dropdown-toggle" href="blog-sidebar.html" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Makaleler <i class="icofont-thin-down"></i></a>*@
+        @*<ul class="dropdown-menu" aria-labelledby="dropdown05">
+                <li><a class="dropdown-item" href="blog-sidebar.html">Blog with Sidebar</a></li>
+                <li><a class="dropdown-item" href="blog-single.html">Blog Single</a></li>
+            </ul>*@
+        @*</li>*@

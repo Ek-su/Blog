@@ -1,0 +1,54 @@
+﻿@model KapasitematikBlog.Domain.Kategori
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="form">
+    <form class="form-validate form-horizontal" id="feedback_form" method="post" asp-controller="Category" asp-action="UpdateKategori" enctype="multipart/form-data" novalidate="novalidate">
+        <div class="form-group ">
+            <label for="cname" class="control-label col-lg-2" hidden>Id <span class="required">*</span></label>
+            <div class="col-lg-10">
+                <input class="form-control" id="KategoriId" name="KategoriId" type="hidden" required="" value="@Model.KategoriId">
+            </div>
+        </div>
+        <div class="form-group ">
+            <label for="cname" class="control-label col-lg-2">Kategori Adı <span class="required">*</span></label>
+            <div class="col-lg-10">
+                <input class="form-control" id="KategoriAdi" name="KategoriAd" minlength="3" type="text" required="" value="@Model.KategoriAd">
+            </div>
+        </div>        
+        <div class="form-group">
+            <div class="col-lg-offset-2 col-lg-10">
+                <input class="btn btn-primary" type="submit" value="Düzenle" />
+                @*<button class="btn btn-default" type="button"><a href="/makale-listesi">İptal</a></button>*@
+            </div>
+        </div>
+    </form>
+
+    @if (TempData["mesaj"] != null)
+    {
+        <div id="dialog" title="Bilgi Mesajı">
+            <p>
+                @TempData["mesaj"].ToString()
+            </p>
+        </div>
+    }
+
+</div>
+
+@section Scripts {
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.0/jquery-ui.js"></script>
+    <script>
+        $("#dialog").dialog();
+        $("#Tarih").datepicker({
+            dateFormat: "dd/mm/yy",
+            onSelect: function (date) {
+                minDateFilter = new Date(date).getTime();
+            }
+        });
+    </script>
+}
+
+
+

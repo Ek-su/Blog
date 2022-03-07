@@ -1,0 +1,260 @@
+﻿
+@{
+    ViewData["Title"] = "Veri Politikası";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .textUnderline {
+        text-decoration: underline;
+    }
+
+    .ulStyls {
+        list-style-type: none;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    @@media only screen and (max-width: 770px) {
+        .table-bordered {
+            font-size: 12px !important;
+        }
+
+        .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+            font-size: 12px;
+        }
+    }
+
+    .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+        padding: 1px !important;
+    }
+
+    .table > caption + thead > tr:first-child > th, .table > colgroup + thead > tr:first-child > th, .table > thead:first-child > tr:first-child > th, .table > caption + thead > tr:first-child > td, .table > colgroup + thead > tr:first-child > td, .table > thead:first-child > tr:first-child > td {
+        font-weight: 600;
+    }
+
+    .table > tbody > tr > th {
+        font-weight: 600;
+    }
+</style>
+<style>
+    .scrollbar-deep-purple::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+        background-color: #F5F5F5;
+        border-radius: 10px;
+    }
+
+    .scrollbar-deep-purple::-webkit-scrollbar {
+        width: 12px;
+        background-color: #F5F5F5;
+    }
+
+    .scrollbar-deep-purple::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+        background-color: #007eb9;
+        ;
+    }
+
+    .scrollbar-cyan::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+        background-color: #F5F5F5;
+        border-radius: 10px;
+    }
+
+    .scrollbar-cyan::-webkit-scrollbar {
+        width: 12px;
+        background-color: #F5F5F5;
+    }
+
+    .scrollbar-cyan::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+        background-color: #00bcd4;
+    }
+
+    .scrollbar-dusty-grass::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+        background-color: #F5F5F5;
+        border-radius: 10px;
+    }
+
+    .scrollbar-dusty-grass::-webkit-scrollbar {
+        width: 12px;
+        background-color: #F5F5F5;
+    }
+
+    .scrollbar-dusty-grass::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+        background-image: -webkit-linear-gradient(330deg, #d4fc79 0%, #96e6a1 100%);
+        background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+    }
+
+    .scrollbar-ripe-malinka::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+        background-color: #F5F5F5;
+        border-radius: 10px;
+    }
+
+    .scrollbar-ripe-malinka::-webkit-scrollbar {
+        width: 12px;
+        background-color: #F5F5F5;
+    }
+
+    .scrollbar-ripe-malinka::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+        background-image: -webkit-linear-gradient(330deg, #f093fb 0%, #f5576c 100%);
+        background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+    }
+
+    .bordered-deep-purple::-webkit-scrollbar-track {
+        -webkit-box-shadow: none;
+    }
+
+    .bordered-deep-purple::-webkit-scrollbar-thumb {
+        -webkit-box-shadow: none;
+    }
+
+    .bordered-cyan::-webkit-scrollbar-track {
+        -webkit-box-shadow: none;
+        border: 1px solid #00bcd4;
+    }
+
+    .bordered-cyan::-webkit-scrollbar-thumb {
+        -webkit-box-shadow: none;
+    }
+
+    .square::-webkit-scrollbar-track {
+        border-radius: 0 !important;
+    }
+
+    .square::-webkit-scrollbar-thumb {
+        border-radius: 0 !important;
+    }
+
+    .thin::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .example-1 {
+        position: relative;
+        overflow-y: scroll;
+        height: 600px;
+    }
+</style>
+
+
+<style>
+
+
+    @@media only screen and (max-width: 770px) {
+        .table-bordered {
+            font-size: 6px !important;
+        }
+
+        .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+            font-size: 6px;
+        }
+    }
+
+    .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+        padding: 1px !important;
+    }
+
+    .table > caption + thead > tr:first-child > th, .table > colgroup + thead > tr:first-child > th, .table > thead:first-child > tr:first-child > th, .table > caption + thead > tr:first-child > td, .table > colgroup + thead > tr:first-child > td, .table > thead:first-child > tr:first-child > td {
+        font-weight: 600;
+    }
+
+    .table > tbody > tr > th {
+        font-weight: 600;
+    }
+</style>
+<div class="realfactory-page-wrapper" id="realfactory-page-wrapper">
+    <div class="realfactory-content-container realfactory-container">
+        <div class=" realfactory-sidebar-wrap clearfix realfactory-line-height-0 realfactory-sidebar-style-right">
+            <div class=" realfactory-sidebar-center realfactory-column-40 realfactory-line-height">
+                <div class="realfactory-content-wrap realfactory-item-pdlr clearfix">
+                    <div class="realfactory-content-area">
+                        <article id="post-1313" class="post-1313 post type-post status-publish format-standard has-post-thumbnail hentry category-blog tag-metal tag-mining tag-polymer">
+                            <div class="realfactory-single-article">
+                                <div class="realfactory-single-article-content">
+                                    <br /><br />
+                                    <p style="font-weight:bold;">VERİ POLİTİKALARIMIZ</p>
+
+                                    <div class="panel-group" id="accordion">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a href="/kisisel-verilerin-korunmasi-ve-islenmesi-politikasi" target="_blank">
+                                                        1.) Kişisel Verilerin Korunması, İşlenmesi ve Saklanması Politikası
+                                                    </a>
+                                                </h4>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                                                        2.) Websitesi Ziyaretçileri,Sosyal Medya Hesapları ve E-Posta Gönderimleri için Kişisel Verilerin Korunmasına İlişkin Aydınlatma Beyanı
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse4" class="panel-collapse collapse in">
+                                                <div class="panel-body example-1 scrollbar-deep-purple bordered-deep-purple thin">
+                                                    @*@{
+
+                                                        await Html.RenderPartialAsync("_webSitesiSosyalMedyaAydinlatmaBeyani");
+                                                    }*@
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                                                        3.) Müşteriler, Potansiyel Müşteriler, Tedarikçiler, Çağrı Sahipleri, Anket ve Eğitim Katılımcıları için Kişisel Verilerin Korunmasına İlişkin Aydınlatma Beyanı
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse1" class="panel-collapse collapse">
+                                                <div class="panel-body example-1 scrollbar-deep-purple bordered-deep-purple thin">
+
+                                                    @*@{
+
+                                                        await Html.RenderPartialAsync("_musteriAydinlatmaBeyani");
+                                                    }*@
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a target="_blank" href="/content/pdf/kvkk-basvuru-formu.pdf">
+                                                        4.) KVKK Başvuru Formu
+                                                    </a>
+                                                </h4>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

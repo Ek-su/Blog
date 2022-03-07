@@ -1,0 +1,114 @@
+﻿
+@model KapasitematikBlog.Domain.Admin
+@{
+    ViewData["Title"] = "Login";
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin Paneli Giriş | Kapasitematik">
+    <meta name="author" content="Tezmaksan">
+    <meta name="keyword" content="Admin Paneli Giriş | Kapasitematik">
+
+    <title>Admin Paneli Giriş Sayfası</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="/NiceAdmin/css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="/NiceAdmin/css/bootstrap-theme.css" rel="stylesheet">
+    <!--external css-->
+    <!-- font icon -->
+    <link href="/NiceAdmin/css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="/NiceAdmin/css/font-awesome.css" rel="stylesheet" />
+    <!-- Custom styles -->
+    <link href="/NiceAdmin/css/style.css" rel="stylesheet">
+    <link href="/NiceAdmin/css/style-responsive.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
+    <!--[if lt IE 9]>
+      <script src="/NiceAdmin/js/html5shiv.js"></script>
+      <script src="/NiceAdmin/js/respond.min.js"></script>
+      <![endif]-->
+    <!-- =======================================================
+      Theme Name: NiceAdmin
+      Theme URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+      Author: BootstrapMade
+      Author URL: https://bootstrapmade.com
+    ======================================================= -->
+</head>
+
+<body class="login-img3-body">
+    <div class="container">
+        @*<form class="login-form" method="post" asp-controller="Login" asp-action="Index">*@
+        @using (Html.BeginForm("Index", "Login", FormMethod.Post))
+        {
+            <div class="login-wrap">
+                <p class="login-img"><i class="icon_lock_alt"></i></p>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="icon_profile"></i></span>
+                    <input type="text" asp-for="AdminAd" class="form-control" id="AdminAd" placeholder="Kullanıcı Adı" autofocus="">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="icon_key_alt"></i></span>
+                    <input type="password" asp-for="AdminSifre" class="form-control" id="AdminSifre" placeholder="Şifre">
+                </div>
+                <button class="btn btn-primary btn-lg btn-block btnLogin" type="submit" id="btnLogin"><i class="fa fa-sign-in" aria-hidden="true"></i> Giriş Yap</button>
+                <br /><br />
+            </div>
+        }
+        @*</form>*@
+
+        @if (TempData["mesaj"] != null)
+        {
+            <div id="dialog" title="Bilgi Mesajı">
+                <p>
+                    @TempData["mesaj"].ToString()
+                </p>
+            </div>
+        }
+    </div>
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript">
+    $("#dialog").dialog();
+    //$(document).ready(function () {
+    //    $("#btnLogin").click(function () {
+    //        //alert("tıklandı")
+    //        let Username = $("#Username").val();
+    //        let Password = $("#Password").val();
+
+    //        let user = { "Username": Username, "Password": Password };
+
+    //        let url = "https://localhost:44388/api/login/accesstoken";
+
+    //        $.ajax({
+    //            type: "POST",
+    //            crossDomain: true,
+    //            url: url,
+    //            data: JSON.stringify(user),
+    //            success: function (data) {
+    //                //console.table(data);
+    //                localStorage.setItem("token", data.token);
+    //                setTimeout(function () {
+    //                    window.location.href = "https://localhost:44310/Admin/Index";
+    //                }, 200);
+    //            },
+    //            error: function (error) {
+    //                console.log(error);
+    //            },
+    //            contentType: "application/json",
+    //            dataType: "json"
+    //        })
+    //    })
+    //})
+</script>
+
+
+
